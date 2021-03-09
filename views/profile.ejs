@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NodeJS</title>
+    <title>Profiles</title>
 
     <style>
         body{
@@ -19,12 +19,26 @@
             letter-spacing: 2px;
             text-align: center;
             }
-        p{font-size: 16px; text-align: center;}
+        h2{
+            font-size: 30px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            text-align: center; 
+        }
+        p, li{font-size: 16px; text-align: center;}
     </style>
 
 </head>
 <body>
-    <h1>Contact us!</h1>
-    <p>You can contact us here...</p>
+    <h1><%= person %>'s Profile</h1>
+    <p><strong>Age:</strong> <%= data.age %></p>
+    <p><strong>Job:</strong> <%= data.job %></p>
+
+    <h2>Hobbies</h2>
+    <ul>
+        <% data.hobbies.forEach(item => { %>
+            <li><%= item %> </li>
+        <% }) %> 
+    </ul>
 </body>
 </html>

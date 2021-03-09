@@ -18,8 +18,9 @@ app.get('/contact', (req, res) => {
 })
 
 // * To grab a URL parameter, use the request object. You use the params object, then the field.
-app.get('/profile/:id', (req, res) => {
-    res.send(`You requested to see a profile with the id of ${req.params.id}`)
+app.get('/profile/:name', (req, res) => {
+    let data = {age: 16, job: 'Student Council President', hobbies: ['Mapo Tofu', 'Maintaining order', 'Helping others']}
+    res.render('profile', {person: req.params.name, data: data})
 })
 
 app.listen(3000)
