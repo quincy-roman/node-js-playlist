@@ -3,19 +3,25 @@ import fs from  'fs'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 
-// const directory = dirname(fileURLToPath(import.meta.url))
+const directory = dirname(fileURLToPath(import.meta.url))
 
 const server = http.createServer((req, res) => {
     console.log(`Request was made: ${req.url}`)
-    // Set up the response with the HTTP status
-    res.writeHead(200, {'Content-Type': 'application/json'})
-
-    let myObj = {
-        name: 'Kanade',
-        job: 'Student Council',
-        age: 16
+    
+    if(req.url === '/home' || req.url === '/'){
+        res.writeHead(200, {'Content-Type': 'text/html'})
+        fs.createReadStream(`${directory}/index.html`).pipe(res)
+    }else if(req.url === '/contact'){
+        res.writeHead(200, {'Content-Type': 'text/html'})
+        fs.createReadStream(`${directory}/contact.html`).pipe(res)
+    }else if(req.url === '/api/characters'){
+        let characters = [{name: "Kanade", age: 16}, {name: "Hori", age: 17}]
+        res.writeHead(200, {'Content-Type': 'application/json'})
+        res.end(JSON.stringify(characters))
+    }else{
+        res.writeHead(404, {'Content-Type': 'text/html'})
+        fs.createReadStream(`${directory}/404.html`).pipe(res)
     }
-    res.end(JSON.stringify(myObj))
 })
 
 // Listen to port 3000 on the local IP.
