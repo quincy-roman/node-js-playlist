@@ -6,6 +6,9 @@ import { fileURLToPath } from 'node:url'
 const app = express()
 app.set('view engine', 'ejs')
 
+// ? Match the route, then the directory.
+app.use('/assets', express.static('assets'))    // * Express's way of serving static files.
+
 const directory = dirname(fileURLToPath(import.meta.url))
 
 // Easily make HTTP requests using the app you made above.
