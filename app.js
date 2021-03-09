@@ -10,11 +10,11 @@ const directory = dirname(fileURLToPath(import.meta.url))
 
 // Easily make HTTP requests using the app you made above.
 app.get('/', (req, res) => {
-    res.sendFile(`${directory}/index.html`)
+    res.render(`index`)
 })
 
 app.get('/contact', (req, res) => {
-    res.sendFile(`${directory}/contact.html`)
+    res.render(`contact`)
 })
 
 // * To grab a URL parameter, use the request object. You use the params object, then the field.
