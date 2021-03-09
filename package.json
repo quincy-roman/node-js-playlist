@@ -1,0 +1,24 @@
+{
+  "name": "js-playlist",
+  "version": "1.0.0",
+  "description": "Node test app",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quincy-roman/node-js-playlist.git"
+  },
+  "author": "Quincy Roman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quincy-roman/node-js-playlist/issues"
+  },
+  "homepage": "https://github.com/quincy-roman/node-js-playlist#readme",
+  "type": "module"
+}
