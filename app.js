@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/contact', (req, res) => {
-    res.render(`contact`)
+    res.render(`contact`, {queryString: req.query}) // The query string has all the properties from the URL
 })
 
 // * To grab a URL parameter, use the request object. You use the params object, then the field.
