@@ -11,7 +11,6 @@ app.use('/assets', express.static('assets'))    // * Express's way of serving st
 app.use(urlencoded())   // TODO This is the better version of below.
 
 const directory = dirname(fileURLToPath(import.meta.url))
-// const urlEncodedParser = bodyParser.urlencoded({ extended: false})  // ! Find better version
 
 // Easily make HTTP requests using the app you made above.
 app.get('/', (req, res) => {
@@ -28,7 +27,7 @@ app.get('/profile/:name', (req, res) => {
     res.render('profile', {person: req.params.name, data: data})
 })
 
-// * Making a POST request requires a middleware parser.
+// * Making a POST request requires a middleware parser, unless expressing to use it in the app as shown above.
 app.post('/contact', (req, res) => {
     console.log(req.body)
     res.render('contact-success', {data: req.body})
